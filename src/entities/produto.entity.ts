@@ -16,4 +16,7 @@ export class Produto {
 
   @Column({ nullable: false })
   estoque_produto: number;
+
+  @Column({ type: 'text', nullable: true }) 
+  url_imagem: string; 
 }

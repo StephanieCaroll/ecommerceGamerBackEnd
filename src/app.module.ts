@@ -1,3 +1,4 @@
+// src/app.module.ts
 import { HttpModule } from '@nestjs/axios';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -19,7 +20,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
       password: '220506',
       database: 'ecommerce_gamer',
       entities: [Usuario, Produto],
-      synchronize: false
+      synchronize: false, 
+      migrations: [__dirname + '/../migrations/*.js'],
+      migrationsRun: false,
     }),
     TypeOrmModule.forFeature([Usuario, Produto]),
     HttpModule,
